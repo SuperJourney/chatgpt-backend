@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/go:0-1-bullseye
+    environment:
+      - GOPROXY=https://proxy.golang.com.cn,direct
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+
+  redis:
+    image: redis:latest
+    restart: unless-stopped
